@@ -5,11 +5,11 @@ import Config
 config :repo_exception, RepoExceptionWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "oiKAaJ68R8sWrZMCmap/29hwvcojyddiX1aemUPFp3b6CB1W0KPyLThg0BXd+ByS",
-  server: false
+  # Changed to allow http client to access the endpoint
+  server: true
 
 # In test we don't send emails.
-config :repo_exception, RepoException.Mailer,
-  adapter: Swoosh.Adapters.Test
+config :repo_exception, RepoException.Mailer, adapter: Swoosh.Adapters.Test
 
 # Print only warnings and errors during test
 config :logger, level: :warn
